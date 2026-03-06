@@ -1,0 +1,98 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-background {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 450px;
+}
+
+.login-card {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-top: 20px;
+}
+
+.login-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.login-footer p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Ant Design Tabs 自定义 */
+.login-card .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.login-card .ant-tabs-tab {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 表单样式 */
+.login-card .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.login-card .ant-input-affix-wrapper,
+.login-card .ant-input {
+  border-radius: 8px;
+}
+
+.login-card .ant-btn {
+  border-radius: 8px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 576px) {
+  .login-content {
+    max-width: 100%;
+  }
+
+  .login-card {
+    border-radius: 8px;
+  }
+
+  .login-header h1 {
+    font-size: 24px;
+  }
+}

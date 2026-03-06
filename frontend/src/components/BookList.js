@@ -9,10 +9,8 @@ import {
   DeleteOutlined,
   SearchOutlined
 } from '@ant-design/icons';
-import axios from 'axios';
+import api from '../utils/api';
 import moment from 'moment';
-
-const API_BASE = process.env.REACT_APP_API_URL || '/api';
 
 function BookList() {
   const [books, setBooks] = useState([]);
@@ -39,7 +37,7 @@ function BookList() {
   const fetchBooks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE}/books`, {
+      const response = await api.get('/books', {
         params: {
           page: pagination.current,
           per_page: pagination.pageSize,
@@ -60,7 +58,7 @@ function BookList() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get(`${API_BASE}/categories`);
+      const response = await api.get('/categories');
       setCategories(response.data);
     } catch (error) {
       console.error('获取分类失败:', error);
@@ -84,7 +82,7 @@ function BookList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE}/books/${id}`);
+      await api.delete(`/books/${id}`);
       message.success('删除成功');
       fetchBooks();
     } catch (error) {
@@ -100,10 +98,10 @@ function BookList() {
       };
 
       if (editingBook) {
-        await axios.put(`${API_BASE}/books/${editingBook.id}`, data);
+        await api.put(`/books/${editingBook.id}`, data);
         message.success('更新成功');
       } else {
-        await axios.post(`${API_BASE}/books`, data);
+        await api.post('/books', data);
         message.success('添加成功');
       }
 

@@ -5,9 +5,7 @@ import {
   DatabaseOutlined,
   AppstoreOutlined
 } from '@ant-design/icons';
-import axios from 'axios';
-
-const API_BASE = process.env.REACT_APP_API_URL || '/api';
+import api from '../utils/api';
 
 function Dashboard() {
   const [stats, setStats] = useState({
@@ -23,7 +21,7 @@ function Dashboard() {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get(`${API_BASE}/stats`);
+      const response = await api.get('/stats');
       setStats(response.data);
     } catch (error) {
       console.error('获取统计数据失败:', error);
