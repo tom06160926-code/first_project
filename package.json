@@ -1,0 +1,27 @@
+{
+  "name": "book-management-system",
+  "version": "1.0.0",
+  "description": "前后端分离的图书管理系统",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && python app.py",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "cd frontend && npm test",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && pip install -r requirements.txt",
+    "init-db": "cd backend && python -c \"from app import app, db; app.app_context().push(); db.create_all()\"",
+    "seed": "cd backend && python -c \"from app import app, seed_data; app.app_context().push(); seed_data()\""
+  },
+  "keywords": [
+    "book",
+    "management",
+    "react",
+    "flask",
+    "fullstack"
+  ],
+  "author": "tom06160926-code",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
